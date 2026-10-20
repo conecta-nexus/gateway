@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-# Remove default configuration files
-RUN rm -rf /etc/nginx/conf.d/*
+# Remove default configuration files and create certs directory
+RUN rm -rf /etc/nginx/conf.d/* && mkdir -p /etc/nginx/certs
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
