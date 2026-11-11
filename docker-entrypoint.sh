@@ -24,4 +24,7 @@ if [ -f /etc/nginx/templates/default.conf.template ]; then
     fi
 fi
 
+# Ensure proxy cache directory exists
+mkdir -p /var/cache/nginx/catalog 2>/dev/null || true
+
 exec "$@"
