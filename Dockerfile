@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-# Remove default configuration files and create certs and templates directories
-RUN rm -rf /etc/nginx/conf.d/* && mkdir -p /etc/nginx/certs /etc/nginx/templates
+# Remove default configuration files and create certs, templates, and cache directories
+RUN rm -rf /etc/nginx/conf.d/* && mkdir -p /etc/nginx/certs /etc/nginx/templates /var/cache/nginx/catalog && chown -R nginx:nginx /var/cache/nginx
 
 # Copy custom Nginx configuration and template
 COPY nginx.conf /etc/nginx/nginx.conf
